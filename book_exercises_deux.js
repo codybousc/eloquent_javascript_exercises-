@@ -26,7 +26,7 @@ console.log(sum(arr));
 //2
 //Reversing an Array
 
-a)
+//a)
 function reverseArr(array) {
 	var newArr = [];
   for(var i = 0; i < array.length; i++) {
@@ -40,7 +40,7 @@ function reverseArr(array) {
 arr = [1, 2, 3];
 console.log(reverseArray(arr));
 
-b)
+//b) reversing array in place
 var arrondissement = [1, 2, 3, 4, 5, 6, 7, 8];
 
 function reverseArrInPlace(array) {
@@ -54,3 +54,46 @@ function reverseArrInPlace(array) {
 }
 
 reverseArrInPlace(arrondissement);
+
+//3 A list (Linked Lists)
+
+// a)
+var array = [1, 2, 3];
+
+function arrayToList(array) {
+  var list = null;
+
+  for(var i = array.length - 1; i >= 0; i--) {
+    console.log(list);
+    list = {value: array[i], rest: list};
+    console.log(list);
+  }
+  return list;
+}
+
+// 1st iteration: list = {value: 3, rest: null}
+// 2nd iteration list = { value: 2, rest: {value: 3, rest: null}}
+// 3rd iteration list ={ value: 1, rest: { value: 2, rest: {value: 3, rest: null}}}
+
+// b)
+var testList = {
+  value: 1,
+  rest: {
+    value: 2,
+    rest: {
+      value: 3,
+      rest: null
+    }
+  }
+};
+
+
+function listToArray(list) {
+  var array = [];
+  for(var node = list; node; node = node.rest ) {
+    array.push(node.value);
+  }
+  return array;
+}
+
+listToArray(testList);
