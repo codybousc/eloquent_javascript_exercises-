@@ -97,3 +97,51 @@ function listToArray(list) {
 }
 
 listToArray(testList);
+
+//3 Deep Equal
+
+function deepEqual(firstObj, secondObj) {
+	var areEqual = true;
+  if(typeof firstObj == 'object' && firstObj != null
+      && typeof secondObj == 'object' && secondObj != null) {
+        for(prop in firstObj) {
+        	var val = firstObj[prop];
+          console.log("Outer for ", prop, val);
+        	for(prop2 in secondObj) {
+          	var val2 = secondObj[prop2];
+            console.log("NESTED for ", prop2, val2);
+            if(prop == prop2 && val == val2) {
+            	console.log("ARE TRUE!!!!")
+              break;
+            }
+            else {
+            	console.log("ARE FALLLLLLLLSLEEEE, BROSKI");
+              console.log("Prop = ", prop, "val = ",  val);
+              console.log("Prop2 = ", prop2, "val2 = ",  val2);
+              break;
+            }
+          }
+        }
+      }
+  else {
+  	if(firstObj === secondObj) {
+    	return true;
+    }
+    else {
+    	return false;
+    }
+  }
+}
+
+var object1 = {name: "tbone", age: 24};
+var object2 = {name: "tbone", age: 24};
+
+console.log(deepEqual(object1, object2));
+
+//Chapter 5
+
+var arr = [[1, 3, 4], [5, 3, 2]];
+
+console.log(arr.reduce(function(cur, next) {
+	return cur.concat(next);
+},[])); 
